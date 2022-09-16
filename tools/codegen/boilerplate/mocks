@@ -1,0 +1,10 @@
+import { rest } from 'msw';
+
+export const nameHandlers = [
+  /**
+   * Mock request handler
+   */
+  rest.get('', (_, response, context) => {
+    return response(context.json({}), context.delay(500));
+  }),
+];

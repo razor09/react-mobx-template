@@ -1,0 +1,10 @@
+import { makeAutoObservable } from 'mobx';
+import { Store } from './Store';
+
+export class nameStore {
+  constructor(public store: Store) {
+    makeAutoObservable(this, {
+      store: false,
+    });
+  }
+}
