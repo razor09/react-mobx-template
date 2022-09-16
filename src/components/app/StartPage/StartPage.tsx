@@ -3,5 +3,5 @@ import { FunctionComponent } from 'react';
 import style from './StartPage.scss';
 
 export const StartPage = observer<FunctionComponent>(() => {
-  return <div className={style.container}>StartPage</div>;
+  return <div className={style.container}>React Mobx Template</div>;
 });
