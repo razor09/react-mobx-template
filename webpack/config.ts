@@ -7,7 +7,7 @@ import { Configuration, DefinePlugin } from 'webpack';
 import 'webpack-dev-server';
 import { Args } from './typings';
 
-export default (_: never, args: Args): Configuration => {
+export default (_: object, args: Args): Configuration => {
   const isDevelopment = args.mode === 'development';
   const isProduction = args.mode === 'production';
   const isLocalEnvironment = args.name === 'local';
