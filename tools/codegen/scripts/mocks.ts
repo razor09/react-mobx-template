@@ -1,5 +1,5 @@
-const { writeFileSync } = require('fs');
-const { mocksFolder, isNewMocks, insertContent } = require('./boilerplate');
+import { writeFileSync } from 'fs';
+import { insertContent, isNewMocks, mocksFolder } from './boilerplate';
 
 process.argv
   .filter((_, index) => index > 1)

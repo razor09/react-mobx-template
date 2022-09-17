@@ -1,11 +1,13 @@
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
-const { DefinePlugin } = require('webpack');
-const { resolve } = require('path');
+import * as CssMinimizerWebpackPlugin from 'css-minimizer-webpack-plugin';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { resolve } from 'path';
+import * as TerserWebpackPlugin from 'terser-webpack-plugin';
+import { Configuration, DefinePlugin } from 'webpack';
+import 'webpack-dev-server';
+import { Args } from './typings';
 
-module.exports = (_, args) => {
+export default (_: never, args: Args): Configuration => {
   const isDevelopment = args.mode === 'development';
   const isProduction = args.mode === 'production';
   const isLocalEnvironment = args.name === 'local';

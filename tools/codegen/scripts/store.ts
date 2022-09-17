@@ -1,5 +1,5 @@
-const { writeFileSync } = require('fs');
-const { storeFolder, isNewStore, insertContent } = require('./boilerplate');
+import { writeFileSync } from 'fs';
+import { insertContent, isNewStore, storeFolder } from './boilerplate';
 
 process.argv
   .filter((_, index) => index > 1)

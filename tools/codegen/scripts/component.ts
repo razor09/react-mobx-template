@@ -1,5 +1,5 @@
-const { mkdirSync, writeFileSync } = require('fs');
-const { appComponentsFolder, isNewComponent, insertContent } = require('./boilerplate');
+import { mkdirSync, writeFileSync } from 'fs';
+import { appComponentsFolder, insertContent, isNewComponent } from './boilerplate';
 
 process.argv
   .filter((_, index) => index > 1)

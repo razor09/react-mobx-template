@@ -1,17 +1,17 @@
 {
   "name": "react-mobx-template",
   "scripts": {
-    "start": "webpack serve --progress --mode=development --name=local",
-    "start:remote": "webpack serve --progress --mode=development",
-    "build": "webpack --progress --mode=production",
-    "serve": "node tools/scripts/server.js",
+    "start": "webpack serve --config webpack/config.ts --progress --mode=development --name=local",
+    "start:remote": "webpack serve --config webpack/config.ts --progress --mode=development",
+    "build": "webpack --config webpack/config.ts --progress --mode=production",
+    "serve": "node tools/scripts/server.ts",
     "clear": "rm -rf dist node_modules package-lock.json public/mockServiceWorker.js && npm install",
     "clear:up": "rm -rf dist node_modules public/mockServiceWorker.js && npm ci",
-    "lint": "prettier --write *.js '{public,src,tools}/**/*.{js,ts,tsx}'",
+    "lint": "prettier --write '{public,src,tools,webpack}/**/*.{js,ts,tsx}'",
     "lint:staged": "npm run lint && git add --all",
-    "generate:component": "node tools/codegen/scripts/component.js",
-    "generate:store": "node tools/codegen/scripts/store.js",
-    "generate:mocks": "node tools/codegen/scripts/mocks.js",
+    "generate:component": "node tools/codegen/scripts/component.ts",
+    "generate:store": "node tools/codegen/scripts/store.ts",
+    "generate:mocks": "node tools/codegen/scripts/mocks.ts",
     "postinstall": "npm run lint"
   },
   "prettier": {
@@ -35,6 +35,7 @@
     "react-transition-group": "4.4.5"
   },
   "devDependencies": {
+    "@types/http-server": "0.12.1",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
@@ -53,6 +54,7 @@
     "style-loader": "3.3.1",
     "terser-webpack-plugin": "5.3.6",
     "ts-loader": "9.3.1",
+    "ts-node": "10.9.1",
     "typescript": "4.8.3",
     "webpack": "5.74.0",
     "webpack-cli": "4.10.0",

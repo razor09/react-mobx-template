@@ -1,5 +1,5 @@
-const { createServer } = require('http-server');
-const { resolve } = require('path');
+import { createServer } from 'http-server';
+import { resolve } from 'path';
 
 const server = createServer({
   root: resolve(__dirname, '../../dist'),
