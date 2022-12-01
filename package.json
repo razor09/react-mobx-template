@@ -13,7 +13,7 @@
     "generate:component": "ts-node tools/codegen/scripts/component.ts",
     "generate:store": "ts-node tools/codegen/scripts/store.ts",
     "generate:mocks": "ts-node tools/codegen/scripts/mocks.ts",
-    "push": "git add --all && git commit -m 'update' && git push origin master",
+    "push": "git add --all && git commit -m 'update' && git push origin main",
     "postinstall": "npm run lint"
   },
   "prettier": {
