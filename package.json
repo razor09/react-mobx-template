@@ -7,7 +7,7 @@
     "serve": "ts-node tools/scripts/server.ts",
     "clear": "rm -rf dist node_modules public/mockServiceWorker.js && npm ci",
     "clear:force": "rm -rf dist node_modules package-lock.json public/mockServiceWorker.js && npm install",
-    "update": "npx ncu -u && npm run clear:force",
+    "update": "npx ncu -u && npm install",
     "lint": "prettier --write '{public,src,tools,webpack}/**/*.{js,ts,tsx}'",
     "lint:staged": "npm run lint && git add --all",
     "generate:component": "ts-node tools/codegen/scripts/component.ts",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/http-server": "0.12.1",
     "@types/node": "18.11.10",
-    "@types/react": "18.0.25",
+    "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
     "@types/react-transition-group": "4.4.5",
     "css-loader": "6.7.2",
