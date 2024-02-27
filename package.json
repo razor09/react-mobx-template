@@ -6,7 +6,7 @@
     "serve": "ts-node webpack/server.ts",
     "generate": "ts-node tools/codegen/generate.ts",
     "lint": "prettier --write '**/*.{ts,tsx}'",
-    "fetch": "rm -rf dist node_modules public/mockServiceWorker.js && npm ci",
+    "fetch": "rm -rf node_modules public/mockServiceWorker.js && npm ci",
     "update:soft": "ncu -u && npm install",
     "update:hard": "ncu -u && rm -rf dist node_modules package-lock.json && npm install"
   },
