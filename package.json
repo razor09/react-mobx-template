@@ -17,7 +17,7 @@
     "trailingComma": "all"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run lint && git add --all"
+    "pre-commit": "npm run lint"
   },
   "msw": {
     "workerDirectory": "public"
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/http-server": "0.12.4",
-    "@types/node": "20.11.20",
+    "@types/node": "20.11.21",
     "@types/react": "18.2.60",
     "@types/react-dom": "18.2.19",
     "@types/react-transition-group": "4.4.10",
@@ -40,8 +40,8 @@
     "css-minimizer-webpack-plugin": "6.0.0",
     "html-webpack-plugin": "5.6.0",
     "http-server": "14.1.1",
-    "mini-css-extract-plugin": "2.8.0",
-    "msw": "2.2.1",
+    "mini-css-extract-plugin": "2.8.1",
+    "msw": "2.2.2",
     "node-sass": "9.0.0",
     "npm-check-updates": "16.14.15",
     "prettier": "3.2.5",
