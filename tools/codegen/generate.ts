@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { TypeOfFile, ValidProcessArgs } from './typings'
 
-const boilerplateFolder = resolve('tools/codegen/boilerplate')
+const boilerplateFolder = resolve('tools/boilerplate')
 const appComponentsFolder = resolve('src/components/app')
 const iconsComponentsFolder = resolve('src/components/icons')
 const uiComponentsFolder = resolve('src/components/ui')
