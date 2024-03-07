@@ -8,7 +8,7 @@
     "lint": "prettier --write '**/*.{ts,tsx}'",
     "fetch": "rm -rf node_modules public/mockServiceWorker.js && npm ci",
     "update:soft": "ncu -u && npm install",
-    "update:hard": "ncu -u && rm -rf dist node_modules package-lock.json && npm install"
+    "update:hard": "ncu -u && rm -rf node_modules package-lock.json && npm install"
   },
   "prettier": {
     "printWidth": 120,
@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "@types/http-server": "0.12.4",
-    "@types/node": "20.11.24",
-    "@types/react": "18.2.61",
-    "@types/react-dom": "18.2.19",
+    "@types/node": "20.11.25",
+    "@types/react": "18.2.64",
+    "@types/react-dom": "18.2.21",
     "@types/react-transition-group": "4.4.10",
     "css-loader": "6.10.0",
     "css-minimizer-webpack-plugin": "6.0.0",
@@ -46,12 +46,12 @@
     "npm-check-updates": "16.14.15",
     "prettier": "3.2.5",
     "sass-loader": "14.1.1",
-    "simple-git-hooks": "2.9.0",
+    "simple-git-hooks": "2.10.0",
     "style-loader": "3.3.4",
     "terser-webpack-plugin": "5.3.10",
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
-    "typescript": "5.3.3",
+    "typescript": "5.4.2",
     "webpack": "5.90.3",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "5.0.2"
