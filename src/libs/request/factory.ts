@@ -9,7 +9,7 @@ export class Request {
 
   constructor(config?: Partial<RequestBaseConfig>) {
     if (config) {
-      const { baseUrl, headers, credentials } = config
+      const { baseUrl = '', headers, credentials } = config
       this.baseUrl = baseUrl
       this.headers = headers
       this.credentials = credentials
