@@ -95,7 +95,7 @@ export class Request {
     }
   }
 
-  public onError(errorCallback: ErrorCallback): void {
+  public onError<E extends object>(errorCallback: ErrorCallback<E>): void {
     this.errorCallback = errorCallback
   }
 }
