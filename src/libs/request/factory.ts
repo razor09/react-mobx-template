@@ -1,15 +1,14 @@
 import { ErrorCallback, QueryParams, RequestBaseConfig, RequestCallConfig } from './typings'
 
 export class Request {
-  private baseUrl = ''
-
+  private baseUrl
   private headers: HeadersInit
   private credentials: RequestCredentials
   private errorCallback: ErrorCallback
 
   constructor(config?: Partial<RequestBaseConfig>) {
     if (config) {
-      const { baseUrl = '', headers, credentials } = config
+      const { baseUrl, headers, credentials } = config
       this.baseUrl = baseUrl
       this.headers = headers
       this.credentials = credentials
@@ -17,13 +16,14 @@ export class Request {
   }
 
   private generateUrl(endpoint: string, queryParams?: QueryParams): string {
+    const baseUrl = this.baseUrl || ''
     if (queryParams) {
       const queryString = Object.keys(queryParams)
         .map((key) => `${key}=${queryParams[key]}`)
         .join('&')
-      return `${this.baseUrl}/${endpoint}?${queryString}`
+      return `${baseUrl}/${endpoint}?${queryString}`
     } else {
-      return `${this.baseUrl}/${endpoint}`
+      return `${baseUrl}/${endpoint}`
     }
   }
 
