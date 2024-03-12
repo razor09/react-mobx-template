@@ -43,10 +43,6 @@ export class Request {
     }
   }
 
-  public onError<E extends object>(errorCallback: ErrorCallback<E>): void {
-    this.errorCallback = errorCallback
-  }
-
   public async get<R, Q extends QueryParams = QueryParams>(endpoint: string, queryParams?: Q): Promise<R> {
     try {
       return await this.send({
@@ -97,5 +93,9 @@ export class Request {
       this.errorCallback && this.errorCallback(error)
       throw error
     }
+  }
+
+  public onError(errorCallback: ErrorCallback): void {
+    this.errorCallback = errorCallback
   }
 }

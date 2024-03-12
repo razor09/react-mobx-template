@@ -4,7 +4,9 @@ export type QueryParamsKey = string
 
 export type QueryParamsValue = string | number | boolean
 
-export type ErrorCallback<E extends object = object> = (error: E) => void
+export type ErrorCallback = (error: Error) => void
+
+export interface Error {}
 
 export interface QueryParams {
   [key: QueryParamsKey]: QueryParamsValue
