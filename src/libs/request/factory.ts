@@ -1,7 +1,7 @@
 import { ErrorCallback, QueryParams, RequestBaseConfig, RequestCallConfig } from './typings'
 
 export class Request {
-  private baseUrl
+  private baseUrl: string
   private headers: HeadersInit
   private credentials: RequestCredentials
   private errorCallback: ErrorCallback
