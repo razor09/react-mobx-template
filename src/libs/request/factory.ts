@@ -27,7 +27,7 @@ export class Request {
     }
   }
 
-  private async send<R, Q extends QueryParams, B extends object>(config: RequestCallConfig<B, Q>): Promise<R> {
+  private async send<R, Q extends QueryParams, B extends object>(config: RequestCallConfig<Q, B>): Promise<R> {
     try {
       const { endpoint, queryParams, method, body } = config
       const url = this.generateUrl(endpoint, queryParams)
