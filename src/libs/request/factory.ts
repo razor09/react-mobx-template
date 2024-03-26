@@ -1,15 +1,14 @@
 import { ErrorCallback, QueryParams, RequestBaseConfig, RequestCallConfig } from './typings'
 
 export class Request {
-  private baseUrl = ''
-
+  private baseUrl: string
   private headers: HeadersInit
   private credentials: RequestCredentials
   private errorCallback: ErrorCallback
 
   constructor(config?: Partial<RequestBaseConfig>) {
     if (config) {
-      const { baseUrl = '', headers, credentials } = config
+      const { baseUrl, headers, credentials } = config
       this.baseUrl = baseUrl
       this.headers = headers
       this.credentials = credentials
@@ -17,17 +16,18 @@ export class Request {
   }
 
   private generateUrl(endpoint: string, queryParams?: QueryParams): string {
+    const baseUrl = this.baseUrl || ''
     if (queryParams) {
       const queryString = Object.keys(queryParams)
         .map((key) => `${key}=${queryParams[key]}`)
         .join('&')
-      return `${this.baseUrl}/${endpoint}?${queryString}`
+      return `${baseUrl}/${endpoint}?${queryString}`
     } else {
-      return `${this.baseUrl}/${endpoint}`
+      return `${baseUrl}/${endpoint}`
     }
   }
 
-  private async send<R, Q extends QueryParams, B extends object>(config: RequestCallConfig<B, Q>): Promise<R> {
+  private async send<R, Q extends QueryParams, B extends object>(config: RequestCallConfig<Q, B>): Promise<R> {
     try {
       const { endpoint, queryParams, method, body } = config
       const url = this.generateUrl(endpoint, queryParams)
@@ -41,10 +41,6 @@ export class Request {
     } catch (error) {
       throw error
     }
-  }
-
-  public onError<E extends object>(errorCallback: ErrorCallback<E>): void {
-    this.errorCallback = errorCallback
   }
 
   public async get<R, Q extends QueryParams = QueryParams>(endpoint: string, queryParams?: Q): Promise<R> {
@@ -97,5 +93,9 @@ export class Request {
       this.errorCallback && this.errorCallback(error)
       throw error
     }
+  }
+
+  public onError<E extends object>(errorCallback: ErrorCallback<E>): void {
+    this.errorCallback = errorCallback
   }
 }

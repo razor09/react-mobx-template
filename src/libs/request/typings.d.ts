@@ -16,7 +16,7 @@ export interface RequestBaseConfig {
   credentials: RequestCredentials
 }
 
-export interface RequestCallConfig<B extends object, Q extends QueryParams> {
+export interface RequestCallConfig<Q extends QueryParams, B extends object> {
   method: RequestMethod
   endpoint: string
   queryParams?: Q
