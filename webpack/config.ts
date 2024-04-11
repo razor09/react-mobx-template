@@ -53,6 +53,7 @@ export default (_: object, args: Args): Configuration => {
               options: {
                 modules: {
                   localIdentName: isDevelopment ? '[name]__[local]--[hash:base64:5]' : '[hash:base64:6]',
+                  namedExport: false,
                 },
               },
             },
