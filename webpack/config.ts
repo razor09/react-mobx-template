@@ -21,6 +21,7 @@ export default (_: object, args: Args): Configuration => {
       filename: '[fullhash].js',
       clean: true,
     },
+    stats: 'errors-warnings',
     resolve: {
       extensions: ['.js', '.ts', '.tsx'],
     },
