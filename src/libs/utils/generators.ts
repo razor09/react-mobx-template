@@ -7,6 +7,7 @@ export const generateClassName = (className: ClassName, classNameCollection?: Cl
     return Object.keys(classNameCollection).reduce((value, className) => {
       return classNameCollection[className] ? `${value} ${className}` : value
     }, result)
+  } else {
+    return result
   }
-  return result
 }
