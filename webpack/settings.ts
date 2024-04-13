@@ -8,28 +8,28 @@ export const origin = ''
 const baseUrl = ''
 const baseUrlOrPath = baseUrl || '/'
 
-export const isDevelopment = (args: Args): boolean => {
+export const getIsDevelopment = (args: Args): boolean => {
   return args.mode === 'development'
 }
 
-export const isProduction = (args: Args): boolean => {
+export const getIsProduction = (args: Args): boolean => {
   return args.mode === 'production'
 }
 
-export const isMocksOn = (args: Args): boolean => {
-  return isDevelopment(args) && args.name === 'mocks'
+export const getIsMocksOn = (args: Args): boolean => {
+  return getIsDevelopment(args) && args.name === 'mocks'
 }
 
-const isMocksOff = (args: Args): boolean => {
-  return isDevelopment(args) && args.name !== 'mocks'
+export const getIsMocksOff = (args: Args): boolean => {
+  return getIsDevelopment(args) && args.name !== 'mocks'
 }
 
 export const getBaseUrl = (args: Args): string => {
-  return isMocksOn(args) ? '' : baseUrl
+  return getIsMocksOn(args) ? '' : baseUrl
 }
 
 export const getProxyConfigArray = (args: Args): ProxyConfigArray => {
-  if (isMocksOff(args)) {
+  if (getIsMocksOff(args)) {
     return [
       {
         context: baseUrlOrPath,
