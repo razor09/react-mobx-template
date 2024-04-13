@@ -1,10 +1,10 @@
 import { createServer } from 'http-server'
 import { resolve } from 'path'
-import * as settings from './settings'
+import { host, origin, port } from './settings'
 
 const server = createServer({
   root: resolve('dist'),
-  proxy: settings.origin,
+  proxy: origin,
 })
 
-server.listen(settings.port, settings.host)
+server.listen(port, host)
