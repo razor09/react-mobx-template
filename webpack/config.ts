@@ -5,15 +5,7 @@ import { resolve } from 'path'
 import * as TerserWebpackPlugin from 'terser-webpack-plugin'
 import { Configuration, DefinePlugin } from 'webpack'
 import 'webpack-dev-server'
-import {
-  getBaseUrl,
-  getIsDevelopment,
-  getIsMocksOn,
-  getIsProduction,
-  getProxyConfigArray,
-  host,
-  port,
-} from './settings'
+import { getBaseUrl, getIsDevelopment, getIsMocksOn, getIsProduction, getProxy, host, port } from './settings'
 import { Args } from './typings'
 
 export default (_: object, args: Args): Configuration => {
@@ -21,6 +13,7 @@ export default (_: object, args: Args): Configuration => {
   const isProduction = getIsProduction(args)
   const isMocksOn = getIsMocksOn(args)
   const baseUrl = getBaseUrl(args)
+  const proxy = getProxy(args)
   return {
     entry: resolve('src/entry'),
     output: {
@@ -82,7 +75,7 @@ export default (_: object, args: Args): Configuration => {
     devServer: {
       host,
       port,
-      proxy: getProxyConfigArray(args),
+      proxy,
       historyApiFallback: true,
     },
     plugins: [

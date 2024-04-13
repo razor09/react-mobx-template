@@ -28,7 +28,7 @@ export const getBaseUrl = (args: Args): string => {
   return getIsMocksOn(args) ? '' : baseUrl
 }
 
-export const getProxyConfigArray = (args: Args): ProxyConfigArray => {
+export const getProxy = (args: Args): ProxyConfigArray => {
   if (getIsMocksOff(args)) {
     return [
       {
