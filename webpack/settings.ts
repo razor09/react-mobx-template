@@ -5,8 +5,7 @@ export const host = 'localhost'
 export const port = 4200
 export const origin = ''
 
-const baseUrl = ''
-const baseUrlOrPath = baseUrl || '/'
+const baseUrl = '/'
 
 export const getIsDevelopment = (args: Args): boolean => {
   return args.mode === 'development'
@@ -32,8 +31,8 @@ export const getProxy = (args: Args): ProxyConfigArray => {
   if (getIsMocksOff(args)) {
     return [
       {
-        context: baseUrlOrPath,
-        target: origin.concat(baseUrlOrPath),
+        context: baseUrl,
+        target: origin.concat(baseUrl),
       },
     ]
   }
