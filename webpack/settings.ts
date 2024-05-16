@@ -5,7 +5,7 @@ export const host = 'localhost'
 export const port = 4200
 export const origin = ''
 
-const baseUrl = '/'
+const baseUrl = ''
 
 export const getIsDevelopment = (args: Args): boolean => {
   return args.mode === 'development'
@@ -29,10 +29,11 @@ export const getBaseUrl = (args: Args): string => {
 
 export const getProxy = (args: Args): ProxyConfigArray => {
   if (getIsMocksOff(args)) {
+    const href = baseUrl || '/'
     return [
       {
-        context: baseUrl,
-        target: origin.concat(baseUrl),
+        context: href,
+        target: origin.concat(href),
       },
     ]
   }
