@@ -16,7 +16,7 @@ export class Request {
   }
 
   private generateUrl(endpoint: string, queryParams?: QueryParams): string {
-    const baseUrl = this.baseUrl ?? ''
+    const baseUrl = this.baseUrl || ''
     if (queryParams) {
       const queryString = Object.keys(queryParams)
         .map((key) => `${key}=${queryParams[key]}`)
@@ -51,7 +51,7 @@ export class Request {
         queryParams,
       })
     } catch (error) {
-      this.errorCallback ?? this.errorCallback(error)
+      this.errorCallback && this.errorCallback(error)
       throw error
     }
   }
@@ -64,7 +64,7 @@ export class Request {
         body,
       })
     } catch (error) {
-      this.errorCallback ?? this.errorCallback(error)
+      this.errorCallback && this.errorCallback(error)
       throw error
     }
   }
@@ -77,7 +77,7 @@ export class Request {
         body,
       })
     } catch (error) {
-      this.errorCallback ?? this.errorCallback(error)
+      this.errorCallback && this.errorCallback(error)
       throw error
     }
   }
@@ -90,7 +90,7 @@ export class Request {
         body,
       })
     } catch (error) {
-      this.errorCallback ?? this.errorCallback(error)
+      this.errorCallback && this.errorCallback(error)
       throw error
     }
   }
