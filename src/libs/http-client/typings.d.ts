@@ -40,3 +40,9 @@ export interface LoadStreamConfig<Q extends QueryParams> {
   queryParams?: Q
   onReadStream?: OnReadStream
 }
+
+export const enum ResponseStatus {
+  Ok = 200,
+  BadRequest = 400,
+  InternalServerError = 500,
+}
