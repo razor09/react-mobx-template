@@ -1,14 +1,10 @@
 import { HttpResponseInit } from 'msw'
-import { Error } from '../../../libs/fallback/typings'
-import { ResponseStatus } from '../../../libs/http-client/typings'
-import { DurationOrMode } from './typings'
+import { DurationOrMode, FailPayload, status } from './typings'
 
 export const exceptions = ['', null]
 
 export const durationOrMode: DurationOrMode = 'real'
 
-export const errorPayload: Error = {}
+export const failResponse: HttpResponseInit = { status }
 
-export const errorResponse: HttpResponseInit = {
-  status: ResponseStatus.BadRequest,
-}
+export const failPayload: FailPayload = { message: 'default' }
