@@ -2,8 +2,7 @@ import { PathParams as Params } from 'msw'
 import { isArray } from '../../../libs/utils/guards'
 import { rebuild, toInteger } from '../../../libs/utils/helpers'
 import { PathParams, QueryParams } from './typings'
-
-const exceptions = ['', null]
+import { exceptions } from './utils'
 
 const getSingleQueryParam = (map: URL, key: keyof QueryParams): string => {
   return map.searchParams.get(key)
